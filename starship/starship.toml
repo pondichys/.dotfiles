@@ -17,3 +17,7 @@ disabled = false
 format = "on [$symbol($subscription)]($style) "
 symbol = "ﴃ "
 style = "blue bold"
+
+[kubernetes]
+disabled = false
+
