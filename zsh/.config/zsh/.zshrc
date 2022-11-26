@@ -50,6 +50,10 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 # Key bindings
 bindkey -e				# Use emacs style key binding.
 
+# Adapt PATH if directory /usr/local/go/bin is present
+if [[ -d /usr/local/go/bin ]]; then
+	export PATH=$PATH:/usr/local/go/bin
+fi
 
 # Initialize starship prompt if the starship command is found.
 if [[ -f /usr/local/bin/starship ]]; then

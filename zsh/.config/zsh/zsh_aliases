@@ -1,14 +1,18 @@
 #!/usr/bin/zsh
 
+# vi = neovim
+alias vi='nvim'
+alias vim='nvim'
+
 # Kubernetes stuff
 alias k='kubectl'
 alias kc='kubectx'
 alias kns='kubens'
 
 # File stuff
-alias ls='exa --icons --all --across'
-alias ll='exa --icons --all --long'
-alias lt='exa --icons --all --tree'
+alias ls='exa --icons --all --across --group-directories-first'
+alias ll='exa --icons --all --long --group-directories-first'
+alias lt='exa --icons --all --tree --group-directories-first'
 
 # Colorize grep output
 alias grep='grep --color=auto'
