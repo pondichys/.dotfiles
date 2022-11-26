@@ -1,4 +1,5 @@
 -- Common neovim options
+vim.opt.clipboard = "unnamedplus"    -- gives access to system clipboard
 vim.opt.number = true			-- display line number
 vim.opt.relativenumber = true		-- enable relative numbers
 vim.opt.ignorecase = true		-- ignore case sensitivity ...
