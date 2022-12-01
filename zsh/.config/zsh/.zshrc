@@ -56,6 +56,6 @@ if [[ -d /usr/local/go/bin ]]; then
 fi
 
 # Initialize starship prompt if the starship command is found.
-if [[ -f /usr/local/bin/starship ]]; then
+if [[ -f /usr/local/bin/starship || -f /bin/starship ]]; then
 	eval "$(starship init zsh)"
 fi
