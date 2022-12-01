@@ -28,3 +28,8 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 
 # Top 5 processes consuming CPU
 alias pscpu='ps auxf | sort -nr -k 3 | head 5'
+
+# Alias for Void Linux
+if [[ $(lsb_release -cs) != "void" ]]; then
+	alias update='sudo xbps-install -Su'
+fi
