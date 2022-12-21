@@ -9,7 +9,7 @@ vim.opt.iskeyword:append("-")         -- treats words with - as single words
 vim.opt.mouse = "a"                   -- enables mouse in neovim
 vim.opt.number = true			            -- display line number
 vim.opt.relativenumber = true		      -- enable relative numbers
-vim.opt.shiftwidth = 2			          -- amount of characters for indentation
+vim.opt.shiftwidth = 4			          -- amount of characters for indentation
 vim.opt.smartcase = true		          -- unless we typed an upper case 
 vim.opt.swapfile = false              -- disables swap file
 vim.opt.tabstop = 2			              -- number of spaces for Tab character
