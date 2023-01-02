@@ -16,7 +16,9 @@ return require('packer').startup(function(use)
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
-  use 'rmehri01/onenord.nvim'
+  --  use 'rmehri01/onenord.nvim'
+  use 'folke/tokyonight.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
