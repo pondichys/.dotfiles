@@ -1,0 +1,10 @@
+# My personal aliases
+# Generic stuff
+alias cp="cp -irv"
+alias mkdir="mkdir -pv"
+alias rm="rm -iv"
+
+# Kubernetes
+alias k="kubectl"
+alias kns="kubectl get namespaces"
+
