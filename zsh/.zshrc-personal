@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # My personal aliases
+=======
+# My personal stuff
+>>>>>>> 823293c (refactor(zsh): adapted zsh config for arcolinux - part 1)
 # Generic stuff
 alias cp="cp -irv"
 alias mkdir="mkdir -pv"
@@ -8,3 +12,8 @@ alias rm="rm -iv"
 alias k="kubectl"
 alias kns="kubectl get namespaces"
 
+<<<<<<< HEAD
+=======
+# zoxide init
+eval "$(zoxide init zsh)"
+>>>>>>> 823293c (refactor(zsh): adapted zsh config for arcolinux - part 1)
