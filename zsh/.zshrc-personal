@@ -1,4 +1,12 @@
 # My personal stuff
+
+## Plugins
+# Autosuggestions
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+## Aliases ##
 # Generic stuff
 alias cp="cp -irv"
 alias mkdir="mkdir -pv"
@@ -9,6 +17,8 @@ alias k="kubectl"
 alias kgn="kubectl get namespaces"
 alias kc="kubectx"
 alias kn="kubens"
+
+## Eval commands
 
 # zoxide init
 eval "$(zoxide init zsh)"
