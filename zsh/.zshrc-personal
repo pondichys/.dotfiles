@@ -6,7 +6,13 @@ alias rm="rm -iv"
 
 # Kubernetes
 alias k="kubectl"
-alias kns="kubectl get namespaces"
+alias kgn="kubectl get namespaces"
+alias kc="kubectx"
+alias kn="kubens"
 
 # zoxide init
 eval "$(zoxide init zsh)"
+
+# Add Starship command prompt
+# This should be done again if running the command skel
+[[ -f /usr/bin/starship ]] && eval "$(starship init zsh)"
