@@ -12,16 +12,35 @@ alias cp="cp -irv"
 alias mkdir="mkdir -pv"
 alias rm="rm -iv"
 
+# Screen layout
+alias screenhome="./.screenlayout/seb-home.sh"
+alias screenwork="./.screenlayout/seb-work.sh"
+
 # Kubernetes
 alias k="kubectl"
 alias kgn="kubectl get namespaces"
 alias kc="kubectx"
 alias kn="kubens"
 
-## Eval commands
+# Lazygit
+alias lg="lazygit"
 
+# Unset some Arco stuff
+unset PAGER
+unalias cz
+
+# Catppuccin theming for FZF
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+## Eval commands
 # zoxide init
 eval "$(zoxide init zsh)"
+
+# fnm Node manager
+eval "$(fnm env --use-on-cd)"
 
 # Add Starship command prompt
 # This should be done again if running the command skel
