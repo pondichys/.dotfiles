@@ -1,0 +1,60 @@
+#   _______| |__  _ __ ___      _ __   ___ _ __ ___  ___  _ __   __ _| |
+#  |_  / __| '_ \| '__/ __|____| '_ \ / _ \ '__/ __|/ _ \| '_ \ / _` | |
+# _ / /\__ \ | | | | | (_|_____| |_) |  __/ |  \__ \ (_) | | | | (_| | |
+#(_)___|___/_| |_|_|  \___|    | .__/ \___|_|  |___/\___/|_| |_|\__,_|_|
+#                              |_|
+
+## Plugins (outside oh-my-zsh) ##
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then 
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then 
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi 
+
+## Insert your personal aliases here ##
+alias cp="cp -irv"
+alias mkdir="mkdir -pv"
+alias rm="rm -iv"
+
+alias df="df -h"
+alias free="free -m"
+
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+alias lg="lazygit"
+
+alias ls="exa --icons --all --across --group-directories-first"
+alias ll="exa --icons --all --long --group-directories-first"
+
+alias screenhome="xrandr --current --size 1920x1080"
+
+alias vi="nvim"
+alias vim="nvim"
+
+alias psmem="ps auxf | sort -nr -k 4 | head -5"
+alias pscpu="ps auxf | sort -nr -k 3 | head -5"
+
+# Void Linux only
+alias update="sudo xbps-install -Su"
+
+# Catppuccin theming for FZF
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+## Eval commands ##
+
+# zoxide init
+if [ -x "$(command -v zoxide)" ]; then
+  eval "$(zoxide init zsh)"
+fi
+
+# Starship prompt - should always be last
+if [ -x "$(command -v starship)" ]; then
+  eval "$(starship init zsh)"
+fi
