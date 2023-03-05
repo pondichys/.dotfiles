@@ -13,6 +13,18 @@ if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; th
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi 
 
+## Completion
+# Automatically highlight first element of completion menu
+setopt MENU_COMPLETE
+# Automatically list choices on ambiguous completion
+setopt AUTO_LIST
+
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+
+## Fix DEL key displaying ~ in alacritty
+bindkey "^[[3~" delete-char
+
 ## Insert your personal aliases here ##
 alias cp="cp -irv"
 alias mkdir="mkdir -pv"
@@ -25,6 +37,20 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
+# Git aliases
+alias ga="git add"
+alias gc="git commit --verbose"
+alias gcb="git checkout -b"
+alias gcf="git config --list"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias glg="git log --stat"
+alias glgg="git log --graph"
+alias glgga="git log --graph --decorate --all"
+alias glo="git log --oneline --decorate"
+alias gp="git push"
+alias gst="git status"
+
 alias lg="lazygit"
 
 alias ls="exa --icons --all --across --group-directories-first"
@@ -32,6 +58,18 @@ alias ll="exa --icons --all --long --group-directories-first"
 
 alias screenhome="xrandr --current --size 1920x1080"
 
+# Terraform aliases
+alias tf="terraform"
+alias tfa="terraform apply"
+alias tfc="terraform console"
+alias tfd="terraform destroy"
+alias tff="terraform fmt"
+alias tfi="terraform init"
+alias tfo="terraform output"
+alias tfp="terraform plan"
+alias tfv="terraform validate"
+
+# nvim aliases
 alias vi="nvim"
 alias vim="nvim"
 
