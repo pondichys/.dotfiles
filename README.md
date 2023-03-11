@@ -4,9 +4,9 @@ This repository contains my configuration files for Linux.
 
 ## Requirements
 
-- git (to clone this repository)
-- stow (to deploy the configuration files)
-- $HOME/.config directory used as XDG_HOME_CONFIG
+- `git` (to clone this repository)
+- `stow` (to deploy the configuration files)
+- `$HOME/.config` directory used as `XDG_HOME_CONFIG`
 
 ## How to use
 Clone this repository into your home directory.
