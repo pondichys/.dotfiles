@@ -51,6 +51,14 @@ alias glo="git log --oneline --decorate"
 alias gp="git push"
 alias gst="git status"
 
+# Kubernetes aliases
+alias k="kubectl"
+alias kgn="kubectl get namespace"
+alias kgp="kubectl get pods"
+alias kgpa="kubectl get pods --all-namespaces"
+alias kgs="kubectl get services"
+alias kgsa="kubectl get services --all-namespaces"
+
 alias lg="lazygit"
 
 alias ls="exa --icons --all --across --group-directories-first"
@@ -91,6 +99,10 @@ export EXA_COLORS="uu=38;2;116;199;236:ur=38;2;249;226;175:uw=38;2;243;139;168:u
 
 ## ufetch
 ufetch
+
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
 ## Eval commands ##
 # zoxide init
