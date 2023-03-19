@@ -13,9 +13,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.maplocalleader = " "
 
 -- Start lazy.nvim
 -- It will automatically load all plugins defined in
 -- ~/.config/nvim/lua/plugins
 -- Each plugin can be defined in its own lua file
 require("lazy").setup("plugins")
+require("config.options")
