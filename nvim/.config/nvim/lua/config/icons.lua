@@ -1,3 +1,4 @@
+-- Icons used in other lua config files
 return {
   kind = {
     Array = "",
