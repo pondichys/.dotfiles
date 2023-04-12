@@ -55,5 +55,7 @@ return {
     config = function(_, opts)
       require("illuminate").configure(opts)
     end,
-  }
+  },
+  -- Undotree
+  { "mbbill/undotree" },
 }
