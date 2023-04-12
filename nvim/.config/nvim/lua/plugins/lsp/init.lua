@@ -11,6 +11,10 @@ return {
     },           -- Optional
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
+    -- Null-ls
+    { "jose-elias-alvarez/null-ls.nvim" },
+    { "jay-babu/mason-null-ls.nvim" }, -- Optional
+
     -- Autocompletion
     { "hrsh7th/nvim-cmp" },         -- Required
     { "hrsh7th/cmp-nvim-lsp" },     -- Required
@@ -56,6 +60,23 @@ return {
     require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
     lsp.setup()
+
+    local null_ls = require('null-ls')
+
+    null_ls.setup({
+      sources = {
+        -- Replace these with the tools you want to install
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.stylua,
+      }
+    })
+
+    -- See mason-null-ls.nvim's documentation for more details:
+    -- https://github.com/jay-babu/mason-null-ls.nvim#setup
+    require('mason-null-ls').setup({
+      ensure_installed = nil,
+      automatic_installation = true,
+    })
     
   end,
 
