@@ -66,8 +66,10 @@ return {
     null_ls.setup({
       sources = {
         -- Replace these with the tools you want to install
+        null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.terraform_fmt,
       }
     })
 
