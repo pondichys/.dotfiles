@@ -1,7 +1,7 @@
 return {
   -- insert common plugins here that do not require much configuration
   -- persistence is a session management plugin
-  { 
+  {
     "folke/persistence.nvim",
     event = "BufReadPre",
     opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals" } },
@@ -58,4 +58,6 @@ return {
   },
   -- Undotree
   { "mbbill/undotree" },
-}
+  -- Better diagnostics with Trouble
+  { "folke/trouble.nvim" },
+  }
