@@ -21,6 +21,9 @@ return {
 	{
 		"echasnovski/mini.comment",
 		version = "*",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
 		event = "VeryLazy",
 		opts = {
 			hooks = {
