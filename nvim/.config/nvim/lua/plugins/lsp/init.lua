@@ -61,7 +61,20 @@ return {
 
     lsp.setup()
 
-    local null_ls = require('null-ls')
+    -- Configure autocompletion with cmp
+    local cmp = require("cmp")
+
+    cmp.setup({
+      sources = {
+        {name = "path"},
+        {name = "nvim_lsp"},
+        {name = "buffer", keyword_length = 3},
+        {name = "luasnip", keyword_length = 2},
+        {name = "codeium"},
+      }
+    })
+
+    local null_ls = require("null-ls")
 
     null_ls.setup({
       sources = {
@@ -75,7 +88,7 @@ return {
 
     -- See mason-null-ls.nvim's documentation for more details:
     -- https://github.com/jay-babu/mason-null-ls.nvim#setup
-    require('mason-null-ls').setup({
+    require("mason-null-ls").setup({
       ensure_installed = nil,
       automatic_installation = true,
     })
