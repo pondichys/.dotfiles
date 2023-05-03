@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Run lazy.nvim and setup plugins
-require("lazy").setup("plugins", 
+require("lazy").setup("plugins",
 {
   checker = { enabled = true },
   performance = {
