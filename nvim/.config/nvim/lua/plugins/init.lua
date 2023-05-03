@@ -60,4 +60,7 @@ return {
   { "mbbill/undotree" },
   -- Better diagnostics with Trouble
   { "folke/trouble.nvim" },
-  }
+  {"folke/zen-mode.nvim",
+    config = true
+  },
+}

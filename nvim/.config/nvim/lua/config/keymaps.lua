@@ -113,7 +113,7 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR> :UndotreeFocus<CR>", opts)
 --end, { silent = false, desc = "nav to file 5" })
 
 -- zenmode
---keymap("n", "<leader>zz", ":ZenMode<CR>", opts)
+keymap("n", "<leader>zz", ":ZenMode<CR>", opts)
 
 -- NvimTrNeoTreeShowToggleee
 --keymap("n", "<leader>e", ":NeoTreeFocusToggle<CR>", { silent = true, desc = "toggle neotree" })
