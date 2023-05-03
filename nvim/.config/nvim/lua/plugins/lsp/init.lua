@@ -56,8 +56,18 @@ return {
       info = '»'
     })
 
-    -- Configure language server for Lua
+    -- Configure language servers
+    -- Lua
     require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+    -- YAML
+    require("lspconfig").yamlls.setup({
+      settings = {
+        yaml = {
+          keyOrdering = false
+        }
+      }
+    })
+
 
     lsp.setup()
 
