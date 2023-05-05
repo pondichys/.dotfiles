@@ -21,3 +21,6 @@ fi
 # fnm
 export PATH="/home/seb/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"
