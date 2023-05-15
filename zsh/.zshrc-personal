@@ -25,6 +25,12 @@ alias kn="kubens"
 # Lazygit
 alias lg="lazygit"
 
+# Neovim
+# Se-VIM config
+alias svim="NVIM_APPNAME=se-vim nvim"
+alias vi="NVIM_APPNAME=se-vim nvim"
+alias vim="NVIM_APPNAME=se-vim nvim"
+
 # Unset some Arco stuff
 unset PAGER
 unalias cz
