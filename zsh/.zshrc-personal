@@ -5,13 +5,13 @@
 #                              |_|
 
 ## Plugins (outside oh-my-zsh) ##
-if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then 
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then 
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi 
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 ## Completion
 # Automatically highlight first element of completion menu
@@ -101,16 +101,27 @@ export EXA_COLORS="uu=38;2;116;199;236:ur=38;2;249;226;175:uw=38;2;243;139;168:u
 neofetch
 
 if [ -d "$HOME/.local/bin" ]; then
-  export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 ## Eval commands ##
 # zoxide init
 if [ -x "$(command -v zoxide)" ]; then
-  eval "$(zoxide init zsh)"
+    eval "$(zoxide init zsh)"
+fi
+
+# fnm
+if [ -d "$HOME/.local/share/fnm" ]; then
+    export PATH="/home/seb/.local/share/fnm:$PATH"
+    eval "$(fnm env --use-on-cd)"
+fi
+
+# Scaleway CLI autocomplete initialization.
+if [ -x "$(command -v scw)" ]; then
+    eval "$(scw autocomplete script shell=zsh)"
 fi
 
 # Starship prompt - should always be last
 if [ -x "$(command -v starship)" ]; then
-  eval "$(starship init zsh)"
+    eval "$(starship init zsh)"
 fi
