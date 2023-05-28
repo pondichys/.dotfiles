@@ -2,3 +2,6 @@
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/.zhistory
 zsh/.config/zsh/plugins/
+
+# Ignore lazygit state file
+lazygit/.config/lazygit/state.yml
