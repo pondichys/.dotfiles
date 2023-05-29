@@ -62,6 +62,10 @@ super + F12
 super + e
     nvim
 
+# Powermenu
+super + x
+    rofi -show power-menu -modi power-menu:rofi-power-menu
+#
 #Browser
 super + w
     vivaldi-stable
