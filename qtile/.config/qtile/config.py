@@ -230,7 +230,7 @@ def init_widgets_list(monitor_num):
             padding = 5
         ),
         widget.Sep(linewidth = 0, padding = 10),
-        widget.TextBox(text = "", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[7]),
+        widget.TextBox(text = "󰍛 ", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[7]),
         widget.Memory(
             font = "JetBrainsMonoNerdFont",
             foreground = colors[8],
