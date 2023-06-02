@@ -36,7 +36,7 @@ disabled = false
 [kubernetes]
 disabled = false
 detect_extensions = ['yaml', 'yml']
-format = '[⛵$context on $namespace](purple) '
+format = '[󱃾 $context on $namespace](purple) '
 
 [terraform]
 symbol = "󱁢 "
