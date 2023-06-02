@@ -30,7 +30,7 @@ style = "bold yellow"
 [container]
 style = "bold yellow dimmed"
 format ="[$symbol distrobox ]($style) "
-symbol = "⬢"
+symbol = " "
 disabled = false
 
 [kubernetes]
