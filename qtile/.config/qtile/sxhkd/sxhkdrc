@@ -326,10 +326,9 @@ Print
 ctrl + Print
      xfce4-screenshooter
 
-#Gnome-Screenshot
-ctrl + shift + Print
-     gnome-screenshot -i
-
+# Flameshot
+super + control + print
+    flameshot gui
 
 #################################################################
 #     FUNCTION KEYS
