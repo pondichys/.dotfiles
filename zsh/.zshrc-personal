@@ -1,10 +1,25 @@
 # My personal stuff
 
-## Plugins
-# Autosuggestions
-if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+## Plugins (outside oh-my-zsh) ##
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+## Completion
+# Automatically highlight first element of completion menu
+setopt MENU_COMPLETE
+# Automatically list choices on ambiguous completion
+setopt AUTO_LIST
+
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+
+## Fix DEL key displaying ~ in alacritty
+bindkey "^[[3~" delete-char
 
 ## Aliases ##
 # Generic stuff
@@ -13,17 +28,40 @@ alias mkdir="mkdir -pv"
 alias rm="rm -iv"
 
 # Screen layout
-alias screenhome="./.screenlayout/seb-home.sh"
-alias screenwork="./.screenlayout/seb-work.sh"
+# alias screenhome="./.screenlayout/seb-home.sh"
+# alias screenwork="./.screenlayout/seb-work.sh"
 
-# Kubernetes
+# Git aliases
+# Git aliases
+alias ga="git add"
+alias gc="git commit --verbose"
+alias gcb="git checkout -b"
+alias gcf="git config --list"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias glg="git log --stat"
+alias glgg="git log --graph"
+alias glgga="git log --graph --decorate --all"
+alias glo="git log --oneline --decorate"
+alias gp="git push"
+alias gst="git status"
+
+# Kubernetes aliases
 alias k="kubectl"
-alias kgn="kubectl get namespaces"
+alias kgn="kubectl get namespace"
+alias kgp="kubectl get pods"
+alias kgpa="kubectl get pods --all-namespaces"
+alias kgs="kubectl get services"
+alias kgsa="kubectl get services --all-namespaces"alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
 
 # Lazygit
 alias lg="lazygit"
+
+# Replace ls by exa
+alias ls="exa --icons --all --across --group-directories-first"
+alias ll="exa --icons --all --long --group-directories-first"
 
 # Neovim
 # Se-VIM config
@@ -31,23 +69,35 @@ alias svim="NVIM_APPNAME=se-vim nvim"
 alias vi="NVIM_APPNAME=se-vim nvim"
 alias vim="NVIM_APPNAME=se-vim nvim"
 
-# Unset some Arco stuff
-unset PAGER
-unalias cz
-
 # Catppuccin theming for FZF
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-## Eval commands
+# Add ~/.local/bin to PATH if it exists
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+## Eval commands ##
 # zoxide init
-eval "$(zoxide init zsh)"
+if [ -x "$(command -v zoxide)" ]; then
+    eval "$(zoxide init zsh)"
+fi
 
-# fnm Node manager
-eval "$(fnm env --use-on-cd)"
+# fnm
+if [ -d "$HOME/.local/share/fnm" ]; then
+    export PATH="/home/seb/.local/share/fnm:$PATH"
+    eval "$(fnm env --use-on-cd)"
+fi
 
-# Add Starship command prompt
-# This should be done again if running the command skel
-[[ -f /usr/bin/starship ]] && eval "$(starship init zsh)"
+# Scaleway CLI autocomplete initialization.
+if [ -x "$(command -v scw)" ]; then
+    eval "$(scw autocomplete script shell=zsh)"
+fi
+
+# Starship prompt - should always be last
+if [ -x "$(command -v starship)" ]; then
+    eval "$(starship init zsh)"
+fi
