@@ -221,6 +221,11 @@ def init_widgets_list(monitor_num):
             foreground = colors[8],
         ),
         widget.Sep(linewidth = 0, padding = 10),
+        widget.BatteryIcon(
+            background = colors[0],
+            battery = 1,
+        ),
+        widget.Sep(linewidth = 0, padding = 10),
         widget.TextBox(text = " ", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[5]),
         widget.CPU(
             font = "JetBrainsMono Nerd Font",
@@ -240,7 +245,7 @@ def init_widgets_list(monitor_num):
         ),
         widget.Sep(linewidth = 0, padding = 10),
         widget.TextBox(text = " ", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[6]),
-        widget.Clock(format='%I:%M %p', font = "JetBrainsMono Nerd Font", padding = 10, foreground = colors[8]),
+        widget.Clock(format='%H:%M', font = "JetBrainsMono Nerd Font", padding = 10, foreground = colors[8]),
         widget.Systray(background = colors[0], icon_size = 20, padding = 4),
         widget.Sep(linewidth = 1, padding = 10, foreground = colors[0], background = colors[0]),
         widget.CurrentLayoutIcon(scale = 0.5, foreground = colors[0], background = colors[4]),
@@ -273,11 +278,19 @@ def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/scripts/autostart.sh"])
 
+# Transient windows are floating by default
+@hook.subscribe.client_new
+def set_floating(window):
+    if (window.window.get_wm_transient_for()
+            or window.window.get_wm_type() in floating_types):
+        window.floating = True
+
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
+floating_types = ["notification", "toolbar", "splash", "dialog", "utility", "file_progress", "download", "error"]
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
