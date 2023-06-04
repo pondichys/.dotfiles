@@ -4,6 +4,7 @@ import subprocess
 from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from libqtile.widget.battery import Battery, BatteryState
 
 mod = "mod4"
 mod1 = "alt"
@@ -153,7 +154,7 @@ layouts = [
 ]
 
 # Define widgets
-
+# Default values 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
     fontsize=12,
@@ -162,6 +163,43 @@ widget_defaults = dict(
 )
 
 extension_defaults = widget_defaults.copy()
+
+# Create custom battery widget
+# from https://github.com/m-col/qtile-config
+class MyBattery(Battery):
+    def build_string(self, status):
+        if self.layout is not None:
+            if status.state == BatteryState.DISCHARGING and status.percent < self.low_percentage:
+                self.layout.colour = self.low_foreground
+            else:
+                self.layout.colour = self.foreground
+        if status.state == BatteryState.DISCHARGING:
+            if status.percent > 0.75:
+                char = ' '
+            elif status.percent > 0.45:
+                char = ' '
+            else:
+                char = ' '
+        elif status.percent >= 1 or status.state == BatteryState.FULL:
+            char = ' '
+        elif status.state == BatteryState.EMPTY or \
+                (status.state == BatteryState.UNKNOWN and status.percent == 0):
+            char = ' '
+        else:
+            char = ' '
+        return self.format.format(char=char, percent=status.percent)
+
+    def restore(self):
+        self.format = '{char}'
+        self.font = 'Font Awesome 5 Free'
+        self.timer_setup()
+
+    def button_press(self, x, y, button):
+        self.format = '{percent:2.0%}'
+        self.font = 'JetBrainsMono Nerd Font'
+        self.timer_setup()
+        self.timeout_add(1, self.restore)
+
 
 def init_widgets_list(monitor_num):
     widgets_list = [
@@ -221,9 +259,14 @@ def init_widgets_list(monitor_num):
             foreground = colors[8],
         ),
         widget.Sep(linewidth = 0, padding = 10),
-        widget.BatteryIcon(
-            background = colors[0],
+        MyBattery(
             battery = 1,
+            format = '{char}',
+            low_foreground = colors[1],
+            show_short_text = False,
+            low_percentage = 0.12,
+            foreground = colors[6],
+            notify_below = 12,
         ),
         widget.Sep(linewidth = 0, padding = 10),
         widget.TextBox(text = " ", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[5]),
