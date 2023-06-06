@@ -59,6 +59,8 @@ alias kgpa="kubectl get pods --all-namespaces"
 alias kgs="kubectl get services"
 alias kgsa="kubectl get services --all-namespaces"
 
+alias h="helm"
+
 alias lg="lazygit"
 
 alias ls="exa --icons --all --across --group-directories-first"
@@ -87,11 +89,22 @@ alias pscpu="ps auxf | sort -nr -k 3 | head -5"
 # Void Linux only
 alias update="sudo xbps-install -Su"
 
+### FZF
 # Catppuccin theming for FZF
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# Enable fzf key bindings
+if [ -f "/usr/share/fzf/key-bindings.zsh" ]; then
+    source "/usr/share/fzf/key-bindings.zsh"
+fi
+
+# Enable fzf completion
+if [ -f "/usr/share/fzf/completion.zsh" ]; then
+    source "/usr/share/fzf/completion.zsh"
+fi
 
 # Catppuccin colors for ls and exa
 export LS_COLORS="di=38;2;203;166;247:fi=38;2;205;214;244:ex=38;2;166;227;161:ln=38;2;137;220;235"
