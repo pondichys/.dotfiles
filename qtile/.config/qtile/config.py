@@ -230,7 +230,6 @@ def init_widgets_list(monitor_num):
             use_mouse_wheel = False
         ),
         widget.Sep(linewidth = 1, padding = 10, foreground = colors[0],background = colors[0]),
-        widget.TextBox(text = " ", fontsize = 14, font = "JetBrainsMono Nerd Font", foreground = colors[6], background = colors[0]),
         widget.TaskList(
             icon_size = 0,
             font = "JetBrainsMono Nerd Font",
