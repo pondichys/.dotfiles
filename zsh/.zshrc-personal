@@ -2,8 +2,8 @@
 
 ## Plugins
 # Autosuggestions
-if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+  source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
 ## Aliases ##
@@ -16,11 +16,29 @@ alias rm="rm -iv"
 alias screenhome="./.screenlayout/seb-home.sh"
 alias screenwork="./.screenlayout/seb-work.sh"
 
+# Git aliases
+alias ga="git add"
+alias gc="git commit --verbose"
+alias gcb="git checkout -b"
+alias gcf="git config --list"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias glg="git log --stat"
+alias glgg="git log --graph"
+alias glgga="git log --graph --decorate --all"
+alias glo="git log --oneline --decorate"
+alias gp="git push"
+alias gst="git status"
+
 # Kubernetes
 alias k="kubectl"
-alias kgn="kubectl get namespaces"
-alias kc="kubectx"
-alias kn="kubens"
+alias kgn="kubectl get namespace"
+alias kgp="kubectl get pods"
+alias kgpa="kubectl get pods --all-namespaces"
+alias kgs="kubectl get services"
+alias kgsa="kubectl get services --all-namespaces"
+
+alias h="helm"
 
 # Lazygit
 alias lg="lazygit"
@@ -35,19 +53,46 @@ alias vim="NVIM_APPNAME=se-vim nvim"
 unset PAGER
 unalias cz
 
+# FZF
+# fzf completions
+if [ -f "/usr/share/fzf/completion.zsh" ]; then
+  source "/usr/share/fzf/completion.zsh"
+fi
+
+# fzf key bindings
+if [ -f "/usr/share/fzf/key-bindings.zsh" ]; then
+  source "/usr/share/fzf/key-bindings.zsh"
+fi
+
 # Catppuccin theming for FZF
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+# Modify PATH
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 ## Eval commands
-# zoxide init
-eval "$(zoxide init zsh)"
+# zoxide
+if [ -x "$(command -v zoxide)" ]; then
+    eval "$(zoxide init zsh)"
+fi
 
-# fnm Node manager
-eval "$(fnm env --use-on-cd)"
+# fnm
+if [ -d "$HOME/.local/share/fnm" ]; then
+    export PATH="/home/seb/.local/share/fnm:$PATH"
+    eval "$(fnm env --use-on-cd)"
+fi
 
-# Add Starship command prompt
-# This should be done again if running the command skel
-[[ -f /usr/bin/starship ]] && eval "$(starship init zsh)"
+# Scaleway CLI autocomplete initialization.
+if [ -x "$(command -v scw)" ]; then
+    eval "$(scw autocomplete script shell=zsh)"
+fi
+
+# Starship prompt - should always be last
+if [ -x "$(command -v starship)" ]; then
+    eval "$(starship init zsh)"
+fi
