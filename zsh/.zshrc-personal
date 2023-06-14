@@ -67,10 +67,25 @@ alias ll="exa --icons --all --long --group-directories-first"
 
 # Neovim
 # Se-VIM config
-alias svim="NVIM_APPNAME=se-vim nvim"
-alias vi="NVIM_APPNAME=se-vim nvim"
-alias vim="NVIM_APPNAME=se-vim nvim"
+alias se-vim="NVIM_APPNAME=se-vim nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+# alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+# alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+# alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 
+function nvims() {
+  items=("default" "se-vim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
 # Catppuccin theming for FZF
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
