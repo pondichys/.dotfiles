@@ -13,8 +13,8 @@ alias mkdir="mkdir -pv"
 alias rm="rm -iv"
 
 # Screen layout
-alias screenhome="./.screenlayout/seb-home.sh"
-alias screenwork="./.screenlayout/seb-work.sh"
+alias screenhome="~/.screenlayout/seb-home.sh"
+alias screenwork="~/.screenlayout/seb-work.sh"
 
 # Git aliases
 alias ga="git add"
@@ -44,12 +44,14 @@ alias h="helm"
 alias lg="lazygit"
 
 # Neovim
-alias svim="NVIM_APPNAME=se-vim nvim"
-alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias mo-vim="NVIM_APPNAME=mo-vim nvim"
+alias lnvim="NVIM_APPNAME=LazyVim nvim"
 
 # Neovim config switcher
 function nvims() {
-  items=("default" "se-vim" "LazyVim")
+  items=("default" "mo-vim" "LazyVim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
