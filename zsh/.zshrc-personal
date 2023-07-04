@@ -59,6 +59,8 @@ alias kgpa="kubectl get pods --all-namespaces"
 alias kgs="kubectl get services"
 alias kgsa="kubectl get services --all-namespaces"
 
+alias grep="rg"
+
 alias h="helm"
 
 alias lg="lazygit"
