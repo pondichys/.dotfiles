@@ -65,8 +65,8 @@ alias h="helm"
 
 alias lg="lazygit"
 
-alias ls="exa --icons --all --across --group-directories-first"
-alias ll="exa --icons --all --long --group-directories-first"
+alias ls="lsd --group-directories-first --color auto --icon auto"
+alias ll="lsd --almost-all --color auto --group-directories-first --icon auto --long"
 
 alias screenhome="xrandr --current --size 1920x1080"
 
@@ -87,8 +87,6 @@ alias vim="nvim"
 # Neovim config switcher
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvim-mo="NVIM_APPNAME=mo-vim nvim"
-# alias nvim-kick="NVIM_APPNAME=kickstart nvim"
-# alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 
 function nvims() {
   # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
