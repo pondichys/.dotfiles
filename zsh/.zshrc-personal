@@ -101,6 +101,13 @@ function nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 
+# Reset Neovim configuration files
+function nvim_reset() {
+  rm -rf "$HOME/.config/nvim"
+  rm -rf "$HOME/.cache/nvim"
+  rm -rf "$HOME/.local/share/nvim"
+}
+
 alias psmem="ps auxf | sort -nr -k 4 | head -5"
 alias pscpu="ps auxf | sort -nr -k 3 | head -5"
 
