@@ -178,18 +178,18 @@ class MyBattery(Battery):
                 self.layout.colour = self.foreground
         if status.state == BatteryState.DISCHARGING:
             if status.percent > 0.75:
-                char = ' '
+                char = '  '
             elif status.percent > 0.45:
-                char = ' '
+                char = '  '
             else:
-                char = ' '
+                char = '  '
         elif status.percent >= 1 or status.state == BatteryState.FULL:
-            char = ' '
+            char = '  '
         elif status.state == BatteryState.EMPTY or \
                 (status.state == BatteryState.UNKNOWN and status.percent == 0):
-            char = ' '
+            char = '  '
         else:
-            char = ' '
+            char = '  '
         return self.format.format(char=char, percent=status.percent)
 
     def restore(self):
@@ -344,6 +344,7 @@ floating_layout = layout.Floating(
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(wm_class="pavucontrol"),  # audio mixer control
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ]
