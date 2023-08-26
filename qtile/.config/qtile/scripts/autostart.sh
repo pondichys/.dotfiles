@@ -32,8 +32,8 @@ function run {
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
 #starting utility applications at boot time
-run variety &
-run wal -R &
+# run variety &
+# run wal -R &
 run nm-applet &
 run xfce4-power-manager &
 numlockx on &
