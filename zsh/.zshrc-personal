@@ -46,8 +46,6 @@ alias lg="lazygit"
 # Neovim
 alias vi="nvim"
 alias vim="nvim"
-alias mo-vim="NVIM_APPNAME=mo-vim nvim"
-alias lnvim="NVIM_APPNAME=LazyVim nvim"
 
 # Functions
 # Neovim config switcher
