@@ -47,6 +47,9 @@ alias lg="lazygit"
 alias vi="nvim"
 alias vim="nvim"
 
+# Helix editor alias
+alias hx="helix"
+
 # Functions
 # Neovim config switcher
 function nvims() {
