@@ -4,3 +4,28 @@ theme = "catppuccin_mocha"
 line-number = "relative"
 cursorline = true
 bufferline = "always"
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "|"
+render = true
+
+[editor.lsp]
+# Disable automatic popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in status line
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["file-name"]
+
+[keys.normal]
+# Navigate buffers with SHIFT H and SHIFT L
+S-h = "goto_previous_buffer"
+S-l = "goto_next_buffer"
