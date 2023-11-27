@@ -30,6 +30,9 @@ alias glo="git log --oneline --decorate"
 alias gp="git push"
 alias gst="git status"
 
+# Helix
+alias hx="helix"
+
 # Kubernetes
 alias k="kubectl"
 alias kgn="kubectl get namespace"
