@@ -33,7 +33,6 @@ alias gp='git push'
 alias glgg='git log --graph'
 alias glgga='git log --graph --decorate --all'
 alias glo='git log --pretty="oneline"'
-alias glol='
 alias lg='lazygit'
 
 # Top 5 processes consuming memory
