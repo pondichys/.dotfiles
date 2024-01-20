@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Define some ZSH environment variables
-export HISTFILE="$XDG_CACHE_HOME/.zhistory"
+export HISTFILE="$HOME/.zhistory"
 export HISTSIZE=10000                        # Max events for internal history
 export SAVEHIST=10000                        # Max events in history file
 
