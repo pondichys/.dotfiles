@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # ZSH options - see man zshoptions for more info
-setopt AUTO_CD					# Go to folder path without using cd.
+# setopt AUTO_CD					# Go to folder path without using cd.
 setopt AUTO_PUSHD				# Push the old directory onto the stack on cd.
 setopt PUSHD_IGNORE_DUPS			# Do not store duplicates in the stack.
 setopt PUSHD_SILENT				# Do not print the directory stack after pushd or popd.
@@ -31,21 +31,11 @@ _comp_options+=(globdots)			# Include hidden files.
 
 zstyle ':completion:*:*:*:*:*' menu select	# Select completions with arrow keys.
 
-# Scaleway CLI autocomplete initialization.
-if [[ -f /usr/local/bin/scw ]]; then
-	eval "$(scw autocomplete script shell=zsh)"
-fi
+# Source useful aliases
+source "$ZDOTDIR/zsh_aliases"
 
 # Source useful functions
 source "$ZDOTDIR/zsh_functions"
-
-# Aliases
-zsh_add_file "zsh_aliases"
-
-# Plugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-
 
 # Key bindings
 bindkey -e				# Use emacs style key binding.
@@ -55,7 +45,20 @@ if [[ -d /usr/local/go/bin ]]; then
 	export PATH=$PATH:/usr/local/go/bin
 fi
 
+# Scaleway CLI autocomplete initialization.
+if command -v scw &> /dev/null
+then
+	eval "$(scw autocomplete script shell=zsh)"
+fi
+
+# zoxide initialization
+if command -v zoxide &> /dev/null
+then
+	eval "$(zoxide init zsh)"
+fi
+
 # Initialize starship prompt if the starship command is found.
-if [[ -f /usr/local/bin/starship || -f /bin/starship ]]; then
+if command -v starship &> /dev/null
+then
 	eval "$(starship init zsh)"
 fi

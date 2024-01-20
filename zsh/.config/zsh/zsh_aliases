@@ -10,9 +10,9 @@ alias kc='kubectx'
 alias kns='kubens'
 
 # File stuff
-alias ls='exa --icons --all --across --group-directories-first'
-alias ll='exa --icons --all --long --group-directories-first'
-alias lt='exa --icons --all --tree --group-directories-first'
+alias ls='lsd --group-directories-first'
+alias ll='lsd --all --group-directories-first --git --long'
+alias tree='lsd --all --directories-only --tree'
 
 # Colorize grep output
 alias grep='grep --color=auto'
@@ -23,13 +23,21 @@ alias fgrep='fgrep --color=auto'
 alias df='df -h'
 alias free='free -m'
 
+# Git stuff
+alias gst='git status'
+alias ga='git add'
+alias gapa='git add --patch'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gp='git push'
+alias glgg='git log --graph'
+alias glgga='git log --graph --decorate --all'
+alias glo='git log --pretty="oneline"'
+alias glol='
+alias lg='lazygit'
+
 # Top 5 processes consuming memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'
 
 # Top 5 processes consuming CPU
 alias pscpu='ps auxf | sort -nr -k 3 | head 5'
-
-# Alias for Void Linux
-if [[ $(lsb_release -cs) == "void" ]]; then
-	alias update='sudo xbps-install -Su'
-fi
