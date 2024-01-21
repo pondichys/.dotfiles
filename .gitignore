@@ -2,3 +2,4 @@
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/.zhistory
 zsh/.config/zsh/plugins/
+tmux/.config/tmux/plugins/
