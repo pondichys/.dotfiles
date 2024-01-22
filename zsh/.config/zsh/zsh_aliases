@@ -40,3 +40,8 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 
 # Top 5 processes consuming CPU
 alias pscpu='ps auxf | sort -nr -k 3 | head 5'
+
+# Fix flatpaks not starting when /kbfs is mounted
+alias fix-flatpaks='fix-flatpak'
+alias fix_flatpak='fix-flatpak'
+alias fix_flatpaks='fix-flatpak'
