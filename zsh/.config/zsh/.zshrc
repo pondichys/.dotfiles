@@ -62,3 +62,7 @@ if command -v starship &> /dev/null
 then
 	eval "$(starship init zsh)"
 fi
+
+# fnm
+export PATH="/home/seb/.local/share/fnm:$PATH"
+eval "`fnm env`"
