@@ -12,7 +12,7 @@ alias kns='kubens'
 # File stuff
 alias ls='lsd --group-directories-first'
 alias ll='lsd --all --group-directories-first --git --long'
-alias tree='lsd --all --directories-only --tree'
+alias tree='lsd --all --directory-only --tree'
 
 # Colorize grep output
 alias grep='grep --color=auto'
