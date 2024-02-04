@@ -70,3 +70,9 @@ fi
 # fnm
 export PATH="/home/seb/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# Run fastfetch if installed
+if command -v fastfetch &> /dev/null
+then
+	fastfetch
+fi
