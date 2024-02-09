@@ -32,8 +32,15 @@ _comp_options+=(globdots)			# Include hidden files.
 zstyle ':completion:*:*:*:*:*' menu select	# Select completions with arrow keys.
 
 #Load plugins
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh] 
+then
+	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Source useful aliases
 source "$ZDOTDIR/zsh_aliases"
