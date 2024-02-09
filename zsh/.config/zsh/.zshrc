@@ -32,7 +32,7 @@ _comp_options+=(globdots)			# Include hidden files.
 zstyle ':completion:*:*:*:*:*' menu select	# Select completions with arrow keys.
 
 #Load plugins
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh] 
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] 
 then
 	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
