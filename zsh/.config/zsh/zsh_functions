@@ -36,3 +36,11 @@ function fix-flatpak() {
 	systemctl --user restart keybase-redirector.service kbfs.service
 }
 
+# Function to get AKS cluster config by cluster name
+# Stores the config into a dedicated file per cluster
+# Those files can then be used by kubie tool to set correct context
+function getakscfg() {
+  aks=$1
+  az aks get-credentials --resource-group rg-aks-$aks-prd --name aks-$aks-prd --admin -f $HOME/.kube/kubeconfig-$aks.yaml 
+}
+
